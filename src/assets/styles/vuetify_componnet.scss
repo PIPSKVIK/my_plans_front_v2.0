@@ -1,0 +1,66 @@
+.v-divider {
+    border-color: #323335 !important;
+}
+
+.cross-btn {
+    opacity: 0.3;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+// v-btn - reset.
+.v-btn {
+    text-transform: none !important;
+}
+
+// breadcrumbs - custom style.
+.v-breadcrumbs-item--disabled {
+    opacity: 0.3 !important;
+}
+.v-breadcrumbs-item {
+    align-items: center;
+    color: inherit;
+    display: inline-flex;
+    padding: 0px !important;
+    vertical-align: middle;
+    font-size: 14px;
+}
+.v-breadcrumbs-item--link:hover {
+    text-decoration: none;
+    position: relative;
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: $white_100;
+    }
+}
+
+.v-overlay__scrim {
+    background-color: rgba(5, 5, 5, 0.4) !important;
+}
+
+.v-divider {
+    border-color: #ffffff !important;
+}
+
+// v-switch
+.v-label {
+    align-items: center;
+    display: inline-flex;
+    letter-spacing: 1 !important;
+}
+.v-selection-control .v-label {
+    font-size: 12px !important;
+    height: 20px;
+}
+.v-switch .v-selection-control {
+    min-height: 0 !important;
+}

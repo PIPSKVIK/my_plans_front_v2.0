@@ -1,0 +1,30 @@
+// mixins
+@mixin scrollbar {
+    &::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb:vertical {
+        margin: 4px;
+        background: #e0e0e0;
+        -webkit-border-radius: 4px;
+        transition: background 0.2s ease;
+        &:hover {
+            background: #63a6e9;
+        }
+        &:active {
+            background: #63a6e9;
+        }
+    }
+
+    &::-webkit-scrollbar-track {
+        width: 4px;
+        background: #fbfbfb;
+    }
+
+    &::-webkit-scrollbar-button:start:decrement,
+    &::-webkit-scrollbar-button:end:increment {
+        height: 4px;
+        display: block;
+    }
+}

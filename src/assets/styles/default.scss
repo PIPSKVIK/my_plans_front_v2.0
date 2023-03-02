@@ -1,0 +1,45 @@
+main {
+    padding: 0;
+}
+
+body {
+    background: $grey_200;
+    color: $white_100;
+    margin: 0;
+    padding: 0;
+    letter-spacing: $letter-spacing;
+}
+
+a {
+    color: $green_100;
+    text-decoration: none;
+}
+
+.v-date-picker-table__current.v-btn--active.v-btn--text {
+    opacity: 1 !important;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgba(#fff, 0.1);
+    border-radius: 6px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(#fff, 0.3);
+}
+
+:-webkit-autofill {
+    -webkit-text-fill-color: $white_100 !important;
+}
