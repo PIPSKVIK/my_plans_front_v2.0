@@ -1,6 +1,7 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
+import { useUser } from '@/store';
 
-const routes = [
+const routes: Array<RouteRecordRaw> = [
     {
         path: '/',
         redirect: '/calendar',
@@ -23,15 +24,12 @@ const routes = [
         children: [
             {
                 path: '/auth/sign-in',
+                beforeEnter: (to, from, next) => {
+                    useUser()?.user?.id ? next('/') : next();
+                },
                 name: 'SignIn',
                 component: () =>
                     import(/* webpackChunkName: "sign-in" */ '@/views/SignInView/SignInView.vue'),
-            },
-            {
-                path: '/auth/sign-up',
-                name: 'SignUp',
-                component: () =>
-                    import(/* webpackChunkName: "sign-up" */ '@/views/SignUpView/SignUpView.vue'),
             },
         ],
     },
@@ -40,6 +38,13 @@ const routes = [
 const router = createRouter({
     history: createWebHistory(process.env.BASE_URL),
     routes,
+});
+
+router.beforeEach(async (to) => {
+    const isAuth = localStorage.getItem('access_token');
+    if (!isAuth && to.name !== 'SignIn' && to.name !== 'SignUp') {
+        return { name: 'SignIn' };
+    }
 });
 
 export default router;

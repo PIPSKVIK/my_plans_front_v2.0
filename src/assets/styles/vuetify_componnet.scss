@@ -25,7 +25,7 @@
     align-items: center;
     color: inherit;
     display: inline-flex;
-    padding: 0px !important;
+    padding: 0 !important;
     vertical-align: middle;
     font-size: 14px;
 }
@@ -55,7 +55,7 @@
 .v-label {
     align-items: center;
     display: inline-flex;
-    letter-spacing: 1 !important;
+    letter-spacing: 1px !important;
 }
 .v-selection-control .v-label {
     font-size: 12px !important;
@@ -63,4 +63,10 @@
 }
 .v-switch .v-selection-control {
     min-height: 0 !important;
+}
+
+
+// v-app-bar - reset
+.v-app-bar.v-toolbar:not(.v-toolbar--flat) {
+    box-shadow: 0 1px 0 0 $grey_300 !important;
 }

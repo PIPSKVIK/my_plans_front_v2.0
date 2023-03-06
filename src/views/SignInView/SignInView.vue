@@ -6,33 +6,34 @@
             </svg>
         </div>
         <v-text-field v-model="state.username" label="User name" required />
-        <v-text-field v-model="state.password" label="Password" required />
-        <v-btn color="blue_100" block @click="submitForm"> SignIn </v-btn>
-        <!-- <v-text-field
-            v-model="state.email"
-            label="E-mail"
-            required
-            :error-messages="v$.email.$errors.map((e) => e.$message)"
-            @input="v$.email.$touch"
-            @blur="v$.email.$touch"
-        /> -->
+        <v-text-field v-model="state.password" label="Password" required type="password" />
+        <v-btn color="blue_100" block :loading="isLoading" @click="submitForm">SignIn</v-btn>
     </div>
 </template>
 
 <script setup lang="ts">
 import './auth-view.scss';
-import { reactive } from 'vue';
+import { reactive, ref } from 'vue';
 import { useUser } from '@/store';
+import { useRouter } from 'vue-router';
 
 const { signIn } = useUser();
+const router = useRouter();
 
 const initialState = {
     username: '',
     password: '',
 };
 const state = reactive({ ...initialState });
+const isLoading = ref(false);
 
 const submitForm = async () => {
-    await signIn(state);
+    isLoading.value = true;
+
+    const res = await signIn(state);
+    if (res) {
+        await router.push({ name: 'Calendar' });
+    }
+    isLoading.value = false;
 };
 </script>

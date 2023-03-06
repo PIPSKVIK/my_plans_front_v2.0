@@ -7,6 +7,7 @@ const myCustomLightTheme = {
     colors: {
         grey_100: '#333238',
         grey_200: '#29282d',
+        grey_300: '#434248',
 
         white_100: '#ffffff',
 

@@ -1,11 +1,13 @@
 <template>
     <v-app>
         <v-layout>
-            <v-main class="d-flex align-center justify-center">
+            <v-main class="auth-layout">
                 <router-view />
             </v-main>
         </v-layout>
     </v-app>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import './auth.scss';
+</script>

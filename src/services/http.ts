@@ -20,7 +20,7 @@ const headers: Readonly<Record<string, string>> = {
 
 const injectToken = (config: InternalAxiosRequestConfig<any>): InternalAxiosRequestConfig<any> => {
     try {
-        const token = localStorage.getItem('token');
+        const token = localStorage.getItem('access_token');
         config.headers = config.headers ?? {};
         if (token != null) {
             config.headers.Authorization = `Bearer ${token}`;
@@ -61,8 +61,8 @@ class Http {
         return this.http.request(config);
     }
 
-    get<T = any, R = AxiosResponse<T>>(url: string, config?: AxiosRequestConfig): Promise<R> {
-        return this.http.get<T, R>(url, config);
+    get<T = any>(url: string, config?: AxiosRequestConfig) {
+        return this.http.get<T>(url, config);
     }
 
     post<T = any, R = any>(url: string, data?: T, config?: AxiosRequestConfig): Promise<R> {
