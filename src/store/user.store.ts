@@ -13,7 +13,9 @@ export const useUser = defineStore({
         ({
             access_token: '',
             token_type: '',
-            user: JSON.parse(localStorage.getItem('user') ?? '') || {},
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
+            user: JSON.parse(localStorage.getItem('user')) || null,
         } as UserRootState),
     actions: {
         async signIn(payload: AuthUser) {
