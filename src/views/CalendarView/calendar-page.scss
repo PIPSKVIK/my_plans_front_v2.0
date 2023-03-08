@@ -1,2 +1,5 @@
 .calendar-page {
+	height: calc(100vh - 48px);
+	display: flex;
+	align-items: end;
 }
