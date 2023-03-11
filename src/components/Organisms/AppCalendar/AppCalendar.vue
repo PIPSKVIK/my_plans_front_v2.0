@@ -22,12 +22,12 @@
                         </div>
                         <div v-if="day.num" class="num">{{ day.num }}</div>
                         <div class="calendar__cell__shifts">
-                            <!--                            <AppCalendarCard-->
-                            <!--                                v-for="(shift, i) in day.shifts"-->
-                            <!--                                :key="`${shift.shift_id}-${i}`"-->
-                            <!--                                :shift="shift"-->
-                            <!--                                @selectCard="(card_id) => emit('selectCard', card_id)"-->
-                            <!--                            />-->
+                            <!-- <AppCalendarCard
+                                v-for="(shift, i) in day.shifts"
+                                :key="`${shift.shift_id}-${i}`"
+                                :shift="shift"
+                                @selectCard="(card_id) => emit('selectCard', card_id)"
+                            /> -->
                         </div>
                     </template>
                 </div>
