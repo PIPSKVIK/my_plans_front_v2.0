@@ -5,6 +5,7 @@ import axios, {
     AxiosError,
     InternalAxiosRequestConfig,
 } from 'axios';
+import router from '@/router';
 
 enum StatusCode {
     Unauthorized = 401,
@@ -95,7 +96,9 @@ class Http {
                 break;
             }
             case StatusCode.Unauthorized: {
-                // Handle Unauthorized
+                localStorage.removeItem('access_token');
+                localStorage.removeItem('user');
+                router.push('/auth').then();
                 break;
             }
             case StatusCode.TooManyRequests: {

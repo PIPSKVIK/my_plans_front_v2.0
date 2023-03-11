@@ -4,15 +4,18 @@
             <AppNav />
             <AppLeftDrawer />
             <AppRightDrawer />
-            <v-main>
+            <v-main class="main-layout">
                 <router-view />
             </v-main>
         </v-layout>
+
+        <AppAlertList />
     </v-app>
 </template>
 
 <script lang="ts" setup>
-import { AppLeftDrawer, AppNav, AppRightDrawer } from '@/components/Molecules';
+import './main-layout.scss';
+import { AppLeftDrawer, AppNav, AppRightDrawer, AppAlertList } from '@/components/Molecules';
 import { onMounted } from 'vue';
 import { useUser } from '@/store';
 
